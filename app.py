@@ -1,4 +1,6 @@
 from flask import Flask, redirect, url_for, render_template, request
+from person import Person
+from studentdebt import StudentDebt
 
 app = Flask(__name__)
 
@@ -20,7 +22,10 @@ def data():
         return f"The URL /data is accessed directly. Try going to '/form' to submit form"
     if request.method == "POST":
         form_data = request.form
-        return render_template("data.html", form_data=form_data)
+        person = Person(float(form_data['Salary']))
+        person.add_debt('Student debt', StudentDebt(float(form_data['Student debt'])))
+        person.wipe_debt('Student debt')
+        return render_template("data.html", form_data=form_data, person=person)
 
 
 if __name__ == "__main__":
