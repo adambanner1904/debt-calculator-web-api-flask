@@ -4,13 +4,14 @@ app = Flask(__name__)
 
 
 @app.route("/")
+@app.route("/start-here")
 def home():
     return render_template("index.html", content="Testing")
 
 
 @app.route("/form1")
 def form():
-    return render_template("form.html")
+    return render_template("form1.html")
 
 
 @app.route("/data/", methods = ['POST', "GET"])
