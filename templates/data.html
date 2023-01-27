@@ -6,7 +6,8 @@
     <p> {{value}} </p>
     {% endfor %}
     <h2>How long it will take</h2>
-    <p>{{person.debts['Student debt'].months_to_wipe_out}} months</p>
+    <p>{{person.debts['Student debt'].months_to_wipe_out // 12 + 1}} years,
+    {{person.debts['Student debt'].months_to_wipe_out % 12}} months</p>
 {% endblock %}
 
 

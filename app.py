@@ -16,7 +16,7 @@ def form():
     return render_template("form1.html")
 
 
-@app.route("/data/", methods = ['POST', "GET"])
+@app.route("/data/", methods=['POST', "GET"])
 def data():
     if request.method == "GET":
         return f"The URL /data is accessed directly. Try going to '/form' to submit form"
